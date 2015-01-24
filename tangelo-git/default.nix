@@ -1,4 +1,4 @@
-{ stdenv, nodePackages }:
+{ stdenv, nodePackages, git, nodejs }:
 
 stdenv.mkDerivation {
     name = "tangelo-git";
@@ -6,4 +6,6 @@ stdenv.mkDerivation {
     builder = ./builder.sh;
     grunt = nodePackages.grunt-cli;
     npm = nodePackages.npm;
+    inherit nodejs;
+    inherit git;
 }
