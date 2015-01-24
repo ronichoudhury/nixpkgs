@@ -22,10 +22,10 @@
         };
 
         tangelo = pkgs.buildPythonPackage {
-            name = "tangelo-0.8.0";
+            name = "tangelo-0.8.1";
             src = pkgs.fetchurl {
-                url = "https://pypi.python.org/packages/source/t/tangelo/tangelo-0.8.0.tar.gz";
-                md5 = "c1c6eab2a99256aacab29b8980770fa6";
+                url = "https://pypi.python.org/packages/source/t/tangelo/tangelo-0.8.1.tar.gz";
+                md5 = "6ef8a6f4381861f8781abd24fdbec9a9";
             };
 
             propagatedBuildInputs = with pkgs.python27Packages; [
