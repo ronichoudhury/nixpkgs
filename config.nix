@@ -1,4 +1,8 @@
 {
+    chromium = {
+        enablePepperFlash = true;
+    };
+
     packageOverrides = pkgs: rec {
         sqlalchemy = pkgs.buildPythonPackage rec {
             name = "sqlalchemy-0.9.8";
