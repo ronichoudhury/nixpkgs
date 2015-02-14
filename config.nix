@@ -65,8 +65,6 @@
             };
         };
 
-        tangelo-git = pkgs.callPackage ./tangelo-git { };
-
         virtualenv = pkgs.buildPythonPackage rec {
           name = "virtualenv-12.0.7";
           src = pkgs.fetchurl {
