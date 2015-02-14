@@ -66,5 +66,37 @@
         };
 
         tangelo-git = pkgs.callPackage ./tangelo-git { };
+
+        virtualenv = pkgs.buildPythonPackage rec {
+          name = "virtualenv-12.0.7";
+          src = pkgs.fetchurl {
+            url = "http://pypi.python.org/packages/source/v/virtualenv/${name}.tar.gz";
+            md5 = "e08796f79d112f3bfa6653cc10840114";
+          };
+
+          # pythonPath = [ self.recursivePthLoader ];
+
+          patches = [ virtualenv/virtualenv-change-prefix.patch ];
+
+          propagatedBuildInputs = with pkgs.python27Packages; [
+            readline
+            sqlite3
+            curses
+          ];
+
+          buildInputs = with pkgs.python27Packages; [
+            mock
+            nose
+          ];
+
+          doCheck = false;
+
+          meta = {
+            description = "a tool to create isolated Python environments";
+            homepage = http://www.virtualenv.org;
+            license = pkgs.stdenv.lib.licenses.mit;
+            maintainers = [ "Roni Choudhury" ];
+          };
+        };
     };
 }
